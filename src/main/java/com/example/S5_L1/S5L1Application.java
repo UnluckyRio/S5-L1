@@ -5,6 +5,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.core.annotation.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -24,7 +25,8 @@ public class S5L1Application {
 	 * CommandLineRunner per eseguire la stampa del menù all'avvio dell'applicazione
 	 */
 	@Bean
-	public CommandLineRunner run() {
+	@Order(1) // Esegue per primo
+	public CommandLineRunner menuRunner() {
 		return args -> {
 			System.out.println("\n🍕 Benvenuti alla nostra Pizzeria! 🍕\n");
 			
